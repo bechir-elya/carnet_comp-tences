@@ -134,8 +134,63 @@
     - Méthode Array.prototype.includes().
 
 
-- l'utilisation de l'`asynchrone` ❌ / ✔️
-- les spécifités du mot-clef `this` ❌ / ✔️
+- l'utilisation de l'`asynchrone` ✔️
+    - Requêtes réseau (HTTP/Fetch API) :
+        ex :
+            async function fetchData() {
+              const response = await fetch('https://api.example.com/data');
+              const data = await response.json();
+              console.log(data);
+            }
+            fetchData();
+
+    - Interaction avec des bases de données :
+        ex. avec mongoose :
+            import mongoose from "mongoose";
+
+            const connectDB = async () => {
+              try {
+                mongoose.connect(http://localhost:3000/mydb);
+                console.log("Connected to database");
+              } catch(error) {
+                  console.log(error);
+                }
+            }
+
+    - Timers et délais :
+        ex. avec setTimeOut ou setInterval :
+          setTimeout(() => {
+            console.log('Cette tâche est exécutée après 2 secondes.');
+          }, 2000);
+
+    
+    - Gestion d'événements (Event Listeners) :
+          ex :
+            document.getElementById('myButton').addEventListener('click', async () => {
+              await new Promise(resolve => setTimeout(resolve, 1000));
+              console.log('Bouton cliqué après 1 seconde.');
+            });
+
+
+      
+- les spécifités du mot-clef `this` ✔️
+    - Contexte d'une méthode d'objet :
+        ex :
+          const obj = {
+            name: 'Alice',
+            greet() {
+              console.log(`Hello, ${this.name}!`);
+            }
+          };
+          obj.greet();
+
+    - Contexte dans un constructeur :
+        ex :
+          function Person(name) {
+            this.name = name;
+          }
+          const person = new Person('Bob');
+          console.log(person.name);
 
 ## 💻 Je code en Javascript
 
