@@ -7,7 +7,7 @@
 ## 🎓 J'ai compris et je peux expliquer
 
 - les `structures` de base du langage ✔️
-  - Tpes primitifs :
+  - Types primitifs :
       - String (chaines de caractères)
           ex : let nom = "Bechir";
       - Number (entiers ou décimaux)
