@@ -194,17 +194,64 @@
 
 ## 💻 Je code en Javascript
 
-### Un exemple de code commenté ❌ / ✔️
+### Un exemple de code commenté ✔️
 
 ```javascript
-(e) => mc2;
+export const register = async (req, res) => {
+
+    const username = req.body.username;
+    const email = req.body.email;
+    const password = req.body.password;
+
+    if (username.length < 6) {
+        return res.status(400).json('Username must be at least 6 characters.');
+    }
+
+    const validEmail = validator.isEmail(email);
+    const strongPassword = validator.isStrongPassword(password);
+
+    if (!validEmail) {
+        return res.status(400).json('Invalid email');
+    }
+
+    if (!strongPassword) {
+        return res.status(400).json('Password must be at least :' + '<br>' + 'minLength: 8, minLowercase: 1, minUppercase: 1, minNumbers: 1, minSymbols: 1');
+    }
+
+    const userExists = await User.findOne({ email: req.body.email });
+
+    if (userExists) {
+        return res.status(400).json('User already existing');
+    } else {
+        const hashedPassword = await bcrypt.hash(password, 10);
+
+        try {
+            await User.create({
+                username: req.body.username,
+                email: req.body.email,
+                password: hashedPassword,
+                image: req.file.filename
+            });
+            res.json('Account created');
+        } catch (error) {
+            console.log(error);
+        }
+    }
+}
 ```
 
-### Utilisation dans un projet ❌ / ✔️
+### Utilisation dans un projet ✔️
 
-[lien github](...)
+https://github.com/bechir-elya/todo-app/tree/main
 
 Description :
+
+Application de to do list que j'ai créé avec :
+- une interface d'inscription et de connexion
+- une page principale pour créer une to do list
+- dans chaque création d'un to do, on peut ajouter une description, une deadline, etc..
+- on peut modifier/supprimer une todo après sa création ou la barrer pour annoncer qu'elle est terminée
+- un accès au dashboard avec l'ensemble des tâches, le nombre des tâches complétées, supprimées ou en attente.
 
 ### J'ai utilisé ce langage en production ❌ / ✔️
 
@@ -212,16 +259,28 @@ Description :
 
 Description :
 
-### J'ai utilisé ce langage en environement professionnel ❌ / ✔️
+### J'ai utilisé ce langage en environement professionnel ✔️
 
 Description :
 
+J'ai mis en place un dashboard qui permettra d'afficher en temps réel un comparatif du montant collecté entre l'année N et l'année N-1, et le montant total collecté depuis la création de l'entreprise.
+
 ## 🌐 J'utilise des ressources
 
-### Titre
+🌐 MDN :
+- https://developer.mozilla.org/fr/
+- Le site MDN Web Docs fournit des informations sur les technologies Web ouvertes, notamment HTML, CSS et API pour les sites Web et les applications Web progressives.
 
-- lien
-- description
+🌐 WESchools :
+- https://www.w3schools.com/
+- W3Schools est une plateforme en ligne proposant des tutoriels interactifs et des ressources pour apprendre le développement web (HTML, CSS, JavaScript, etc.).
+
+🌐 Stack Overflow :
+- https://stackoverflow.com/questions
+- Plateforme de questions-réponses où les développeurs partagent des solutions et des connaissances en programmation.
+
+Toute autre documentation officielle sur les différentes technos et langages que j'utilise dans mes projets.
+
 
 ## 🚧 Je franchis les obstacles
 
