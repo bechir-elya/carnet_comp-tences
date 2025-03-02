@@ -39,8 +39,10 @@
     ## Documentation instantanée
     - Grâce aux types et interfaces, l’IDE peut afficher la structure des objets et des fonctions sans devoir consulter une doc externe.
  
+
        
 - les types de bases ✔️
+  
     Les types de base permettent de définir des valeurs avec des types spécifiques pour éviter les erreurs.
     Les principaux :
 
