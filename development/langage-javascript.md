@@ -9,116 +9,162 @@
 - les `structures` de base du langage ✔️
   - Types primitifs :
       - String (chaines de caractères)
-          ex : let nom = "Bechir";
+          ex :
+
+            let nom = "Bechir";
       - Number (entiers ou décimaux)
-          ex : let age = 32;
+          ex :
+
+            let age = 32;
       - Boolean (true ou false)
-          ex : let estAdulte = true;
+          ex :
+
+            let estAdulte = true;
       - Undefined (variable déclarée mais non initialisée)
-          ex : let variable;
+          ex :
+
+            let variable;
       - Null (valeur vide explicitement définie)
-          ex : let vide = null;
+          ex :
+
+            let vide = null;
 
   - Types non primitifs :
       - Objets (conteneurs de paires clé-valeur)
-          ex : let personne = { nom: "Behcir", age: 32 };
+          ex :
+
+            let personne = { nom: "Behcir", age: 32 };
       - Arrays (listes indexées)
-          ex : let fruits = ["pomme", "banane", "orange"];
+          ex :
+
+            let fruits = ["pomme", "banane", "orange"];
       - Fonctions (bloc de code réutilisables)
-          ex : function myFucntion() {
-                  console.log("Hello World !);
-                }
+          ex :
+
+            function myFucntion() {
+              console.log("Hello World !);
+            }
       - Classes (modèles pour créer des objets)
-          ex : class Animal {
-                  constructor(nom) {
-                    this.nom = nom;
-                  }
-                }
+          ex :
+
+            class Animal {
+              constructor(nom) {
+                this.nom = nom;
+              }
+            }
 
     - Structures de contrôle :
         - if...else
-            ex : if (age > 18) {
-                  console.log("Adulte");
-                } else {
-                    console.log("Mineur");
-                }
+            ex :
+
+              if (age > 18) {
+                console.log("Adulte");
+              } else {
+                  console.log("Mineur");
+              }
 
         - switch
-            ex : switch (jour) {
-                    case 1:
-                      console.log("Lundi");
-                      break;
-                    default:
-                      console.log("Jour inconnu");
-                  }
+            ex :
+
+              switch (jour) {
+                case 1:
+                  console.log("Lundi");
+                break;
+                  default:
+                console.log("Jour inconnu");
+              }
 
     - Boucles :
         - for
-            ex : for (let i = 0; i < 5; i++) {
-                    console.log(i);
-                  }
+            ex :
+
+              for (let i = 0; i < 5; i++) {
+                console.log(i);
+              }
 
         - while
-            ex : let i = 0;
-                while (i < 5) {
-                  console.log(i);
-                  i++;
-                }
+            ex :
+
+              let i = 0;
+              while (i < 5) {
+                console.log(i);
+                i++;
+              }
 
         - do...while
-            ex : let i = 0;
-                 do {
-                  console.log(i);
-                  i++;
-                } while (i < 5);
+            ex :
+
+              let i = 0;
+              do {
+                console.log(i);
+                i++;
+              } while (i < 5);
 
 
     - Structures de données avancées :
        - Maps (objets clé-valeur abec des clés de tout type)
-           ex : const array1 = [1, 4, 9, 16];
-                const map1 = array1.map((x) => x * 2);
-                console.log(map1);
+           ex :
+
+             const array1 = [1, 4, 9, 16];
+             const map1 = array1.map((x) => x * 2);
+             console.log(map1);
 
       - Filter (pour filtrer un tableau selon une condition déterminée)
-          ex : const words = ['spray', 'elite', 'exuberant', 'destruction', 'present'];
-               const result = words.filter((word) => word.length > 6);
+          ex :
+
+            const words = ['spray', 'elite', 'exuberant', 'destruction', 'present'];
+            const result = words.filter((word) => word.length > 6);
 
       - forEach (exécuter une fonction donnée sur chaque élément du tableau)
-          ex : const array1 = ['a', 'b', 'c'];
-               array1.forEach((element) => console.log(element));
+          ex :
+
+            const array1 = ['a', 'b', 'c'];
+            array1.forEach((element) => console.log(element));
 
       - etc...
 
 
   - Les modules (permettent de structurer le code en fichiers séparés)
       - Exportation
-          ex : export const nom = "Bechir";
+          ex :
+
+            export const nom = "Bechir";
       - Importation
-          ex : import { nom } from './module.js';
+          ex :
+
+            import { nom } from './module.js';
 
   - Gestion des erreurs :
       - try...catch
-          ex : try {
-                let x = y + 1; 
-              } catch (err) {
-                  console.log("Erreur attrapée :", err.message);
-              }
+          ex :
+
+            try {
+              let x = y + 1; 
+            } catch (err) {
+                console.log("Erreur attrapée :", err.message);
+            }
 
   - Asynchronicité :
       - Callbacks
-          ex : setTimeout(() => console.log("Bonjour après 1 seconde"), 1000);
+          ex :
+
+            setTimeout(() => console.log("Bonjour après 1 seconde"), 1000);
 
       - Promises
-          ex : fetch('url').then(response => response.json()).catch(err => console.error(err));
+          ex :
+
+            fetch('url').then(response => response.json()).catch(err => console.error(err));
 
       - async/await
-          ex : async function fetchData() {
-                try {
-                  let data = await fetch('url');
+          ex :
+
+            async function fetchData() {
+              try {
+                let data = await fetch('url');
                   console.log(await data.json());
-                } catch (err) {
+              } catch (err) {
                   console.error(err);
-                }
+              }
             }
 
 
@@ -137,12 +183,13 @@
 - l'utilisation de l'`asynchrone` ✔️
     - Requêtes réseau (HTTP/Fetch API) :
         ex :
-            async function fetchData() {
-              const response = await fetch('https://api.example.com/data');
-              const data = await response.json();
-              console.log(data);
-            }
-            fetchData();
+
+          async function fetchData() {
+            const response = await fetch('https://api.example.com/data');
+            const data = await response.json();
+            console.log(data);
+          }
+          fetchData();
 
     - Interaction avec des bases de données :
         ex. avec mongoose :
@@ -159,6 +206,7 @@
 
     - Timers et délais :
         ex. avec setTimeOut ou setInterval :
+
           setTimeout(() => {
             console.log('Cette tâche est exécutée après 2 secondes.');
           }, 2000);
@@ -166,16 +214,18 @@
     
     - Gestion d'événements (Event Listeners) :
           ex :
-            document.getElementById('myButton').addEventListener('click', async () => {
-              await new Promise(resolve => setTimeout(resolve, 1000));
-              console.log('Bouton cliqué après 1 seconde.');
-            });
+
+          document.getElementById('myButton').addEventListener('click', async () => {
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            console.log('Bouton cliqué après 1 seconde.');
+          });
 
 
       
 - les spécifités du mot-clef `this` ✔️
     - Contexte d'une méthode d'objet :
         ex :
+
           const obj = {
             name: 'Alice',
             greet() {
@@ -186,6 +236,7 @@
 
     - Contexte dans un constructeur :
         ex :
+
           function Person(name) {
             this.name = name;
           }
